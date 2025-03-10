@@ -13,10 +13,6 @@ class ConvolutionBlock(nn.Module):
             nn.Conv2d(self.out_channels, self.out_channels, kernel_size=3, padding=1),
             nn.BatchNorm2d(self.out_channels),
             nn.ReLU(),
-            nn.Conv2d(self.out_channels, self.out_channels, kernel_size=1),
-            nn.BatchNorm2d(self.out_channels),
-            nn.ReLU(),
-            nn.Dropout2d(0.3),
             nn.MaxPool2d(2),
         )
 
@@ -37,7 +33,6 @@ class ConvolutionNet(nn.Module):
             nn.Flatten(),
             nn.Linear(512, 50),
             nn.ReLU(),
-            nn.Dropout(0.3),
             nn.Linear(50, 10),
             #nn.Softmax(dim=1),
         )
